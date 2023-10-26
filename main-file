@@ -1,0 +1,90 @@
+[
+  {
+    "$schema": "https://unpkg.com/@camunda/element-templates-json-schema/resources/schema.json",
+    "name": "Send Email Delegate Template",
+    "id": "emailtemplate",
+    "description": "Template for a SendEmailDelegate",
+    "version": 1,
+    "appliesTo": [
+      "bpmn:Task"
+    ],
+    "elementType": {
+      "value": "bpmn:ServiceTask"
+    },
+    "properties": [
+      {
+        "label": "Implementation Type",
+        "type": "String",
+        "value": "com.mgmtp.a12.workflows.delegates.email.SendEmailDelegate",
+        "entriesVisible": {
+          "_all": true
+        },
+        "editable": false,
+        "binding": {
+          "type": "property",
+          "name": "camunda:class"
+        }
+      },
+      {
+        "label": "recipients",
+        "type": "String",
+        "binding": {
+          "type": "camunda:inputParameter",
+          "name": "recipients"
+        },
+        "constraints": {
+          "notEmpty": true
+        }
+      },
+      {
+        "label": "subject",
+        "type": "String",
+        "binding": {
+          "type": "camunda:inputParameter",
+          "name": "subject"
+        },
+        "constraints": {
+          "notEmpty": true
+        }
+      },
+      {
+        "label": "message",
+        "type": "String",
+        "binding": {
+          "type": "camunda:inputParameter",
+          "name": "message"
+        },
+        "constraints": {
+          "notEmpty": true
+        }
+      },
+      {
+        "label": "cc",
+        "type": "String",
+        "binding": {
+          "type": "camunda:inputParameter",
+          "name": "cc"
+        },
+        "constraints": {
+          "notEmpty": false
+        }
+      },
+      {
+        "label": "Async before?",
+        "type": "Boolean",
+        "binding": {
+          "type": "property",
+          "name": "camunda:asyncBefore"
+        }
+      },
+      {
+        "label": "Async after?",
+        "type": "Boolean",
+        "binding": {
+          "type": "property",
+          "name": "camunda:asyncAfter"
+        }
+      }
+    ]
+  }
+]
